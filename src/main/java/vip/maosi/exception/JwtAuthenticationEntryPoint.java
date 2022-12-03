@@ -1,5 +1,6 @@
 package vip.maosi.exception;
 
+import lombok.val;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import vip.maosi.entity.response.ResponseCover;
@@ -20,10 +21,11 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
                          HttpServletResponse response,
                          AuthenticationException authException) throws IOException {
         //  response.sendError(HttpServletResponse.SC_UNAUTHORIZED, authException.getMessage());
-        ResEntity result = new ResEntity();
+
+        val result = new ResEntity<>();
         result.setCode(HttpServletResponse.SC_UNAUTHORIZED)
-                .setMsg("权限不足,token错误或未携带"+authException.getMessage())
+                .setMsg("权限不足,token错误或未携带" + authException.getMessage())
                 .setData(null);
-        ResponseCover.responseResult(response,result);
+        ResponseCover.responseResult(response, result);
     }
 }

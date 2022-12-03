@@ -1,5 +1,6 @@
 package vip.maosi.exception;
 
+import lombok.val;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import vip.maosi.entity.response.ResponseCover;
@@ -20,14 +21,14 @@ public class JwtAccessDeniedHandler implements AccessDeniedHandler {
      */
     @Override
     public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException {
-    //  AccessDeniedException deniedException = new AccessDeniedException("Sorry you don not enough permissions to access it!");
-    //  response.sendError(HttpServletResponse.SC_FORBIDDEN, "Sorry you don not enough permissions to access it!");
+        //  AccessDeniedException deniedException = new AccessDeniedException("Sorry you don not enough permissions to access it!");
+        //  response.sendError(HttpServletResponse.SC_FORBIDDEN, "Sorry you don not enough permissions to access it!");
 
-        ResEntity result = new ResEntity();
+        val result = new ResEntity<>();
         result.setCode(HttpServletResponse.SC_FORBIDDEN)
-                .setMsg("权限不足"+accessDeniedException.getMessage())
-                .setData("null");
-        ResponseCover.responseResult(response,result);
+                .setMsg("权限不足" + accessDeniedException.getMessage())
+                .setData(null);
+        ResponseCover.responseResult(response, result);
     }
 
 
