@@ -11,7 +11,7 @@ public class ResEntity<T> {
         return code;
     }
 
-    public ResEntity setCode(int code) {
+    public ResEntity<T> setCode(int code) {
         this.code = code;
         return this;
     }
@@ -20,7 +20,7 @@ public class ResEntity<T> {
         return msg;
     }
 
-    public ResEntity setMsg(String msg) {
+    public ResEntity<T> setMsg(String msg) {
         this.msg = msg;
         return this;
     }
@@ -29,7 +29,7 @@ public class ResEntity<T> {
         return data;
     }
 
-    public ResEntity setData(T data) {
+    public ResEntity<T> setData(T data) {
         this.data = data;
         return this;
     }

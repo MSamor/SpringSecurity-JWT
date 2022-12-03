@@ -19,7 +19,7 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
     public void commence(HttpServletRequest request,
                          HttpServletResponse response,
                          AuthenticationException authException) throws IOException {
-//        response.sendError(HttpServletResponse.SC_UNAUTHORIZED, authException.getMessage());
+        //  response.sendError(HttpServletResponse.SC_UNAUTHORIZED, authException.getMessage());
         ResEntity result = new ResEntity();
         result.setCode(HttpServletResponse.SC_UNAUTHORIZED)
                 .setMsg("权限不足,token错误或未携带"+authException.getMessage())
